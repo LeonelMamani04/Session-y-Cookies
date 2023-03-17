@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sp">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/app.css">
+      <title>Login</title>
+</head>
+<body class=<%=session.color ? session.color: "bg-info" %>>
+      <h1>Inicia sesion</h1>
+      
+      <main class="container">
+            <section class="row">
+                  <article class="clol-12 col-md-8 mx-auto">
+                        <div class="card shadow">
+                              <div class="card-body">
+                                    <form action="/" method="POST" class="d-flex justify-content-center align-items-center vh-100">
+                                          <div class="container-Login bg-white p-5 text-secondary ">
+                              
+                              
+                                                <div class="input-container ">
+                                                      <label for="name">Ingrese su nombre</label>
+                                                      <input class="input-style form-control my-2" type="text" name="name" id="name"
+                                                            value="<%= locals.old && locals.old.name ? locals.old.name : null %>">
+                                                      <small class="text-danger">
+                                                            <%= locals.errors && errors.name ? errors.name.msg : null %>
+                                                      </small>
+                                                </div>
+                              
+                                                <div class="input-container">
+                                                      <label for="nameColor">Colores</label>
+                                                      <select class="form-control my-2" name="nameColor" id="nameColor">
+                                                            <option value="" selected hidden>Seleccione un color</option>
+                                                            <option value="Azul" <%=locals.old && ("Azul"===old.nameColor) ? "selected" : null %>>Azul</option>
+                                                            <option value="Gris" <%=locals.old && ("Gris"===old.nameColor) ? "selected" : null %>>Gris</option>
+                                                            <option value="Verde" <%=locals.old && ("Verde"===old.nameColor) ? "selected" : null %>>Verde</option>
+                                                            <option value="Rojo" <%=locals.old && ("Rojo"===old.nameColor) ? "selected" : null %>>Rojo</option>
+                                                            <option value="Amarillo" <%=locals.old && ("Amarillo"===old.nameColor) ? "selected" : null %>>Amarillo</option>
+                                                      </select>
+                                                      <small class="text-danger">
+                                                            <%= locals.errors && errors.nameColor ? errors.nameColor.msg : null %>
+                                                      </small>
+                                                </div>
+                              
+                                                <div class="d-flex align-items-center gap-1 mt-2 mb-4">
+                                                      <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                                                      <label class="pt-1" for="remember" style="font-size: 0.9rem">Recordar Color</label>
+                              
+                                                      <a href="/olvidar" class="m-auto"> <button type="button" class="btn btn-submit btn-info text-white ">Olvidar
+                                                                  color</button></a>
+                                                </div>
+                              
+                                                <div class="input-container">
+                                                      <label for="email">Ingrese su email</label>
+                                                      <input class="form-control my-2" type="text" name="email" id="email"
+                                                            value="<%= locals.old && locals.old.email ? locals.old.email : null %>">
+                                                      <small class="text-danger">
+                                                            <%= locals.errors && errors.email ? errors.email.msg : null %>
+                                                      </small>
+                                                </div>
+                                                <div class="input-container">
+                                                      <label for="age">Ingrese su edad</label>
+                                                      <input class="form-control my-2" type="text" name="age" id="age"
+                                                            value="<%= locals.old && locals.old.age ? locals.old.age : null %>">
+                                                      <small class="text-danger">
+                                                            <%= locals.errors && errors.age ? errors.age.msg : null %>
+                                                      </small>
+                                                </div>
+                                                <button type="submit" class="btn btn-submit btn-info text-white w-100 mt-2">Enviar</button>
+                                          </div>
+                                    </form>
+                              </div>
+
+                        </div>
+                  </article>
+            </section>
+      </main>
+</body>
+
+</html>
